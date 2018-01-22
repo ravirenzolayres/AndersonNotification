@@ -12,7 +12,6 @@ namespace AndersonNotificationFunction
         #region Read
         Notification Read(int notificationId);
         List<Notification> Read(string sortBy);
-
         #endregion
 
         #region Update

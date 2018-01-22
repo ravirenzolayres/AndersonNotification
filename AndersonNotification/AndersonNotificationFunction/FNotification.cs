@@ -3,6 +3,7 @@ using AndersonNotificationEntity;
 using AndersonNotificationModel;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace AndersonNotificationFunction
 {
@@ -22,8 +23,10 @@ namespace AndersonNotificationFunction
         }
         #region Create
         public Notification Create(int createdBy, Notification notification)
-        {
+        {   
             var eNotification = ENotification(notification);
+            eNotification.CreatedDate = DateTime.Now;
+            eNotification.CreatedBy = createdBy;
             eNotification = _iDNotification.Insert(eNotification);
             return Notification(eNotification);
         }
@@ -35,6 +38,7 @@ namespace AndersonNotificationFunction
             var eNotification = _iDNotification.Read<ENotification>(a => a.NotificationId == notificationId);
             return Notification(eNotification);
         }
+
         public List<Notification> Read(string sortBy)
         {
             var eNotifications = _iDNotification.Read<ENotification>(a => true, sortBy);
@@ -46,6 +50,8 @@ namespace AndersonNotificationFunction
         public Notification Update(int updatedBy, Notification notification)
         {
             var eNotification = ENotification(notification);
+            eNotification.UpdatedDate = DateTime.Now;
+            eNotification.UpdatedBy = updatedBy;
             eNotification = _iDNotification.Update(eNotification);
             return Notification(eNotification);
         }
@@ -63,10 +69,15 @@ namespace AndersonNotificationFunction
         {
             return new ENotification
             {
+                CreatedDate = notification.CreatedDate,
+                UpdatedDate = notification.UpdatedDate,
+
+                CreatedBy = notification.CreatedBy,
+                UpdatedBy = notification.UpdatedBy,
 
                 NotificationId = notification.NotificationId,
                 Sender = notification.Sender,
-                Message = notification.Message,
+                Body = notification.Body,
                 Receiver = notification.Receiver,
             };
         }
@@ -75,9 +86,15 @@ namespace AndersonNotificationFunction
         {
             return new Notification
             {
+                CreatedDate = eNotification.CreatedDate,
+                UpdatedDate = eNotification.UpdatedDate,
+
+                CreatedBy = eNotification.CreatedBy,
+                UpdatedBy = eNotification.UpdatedBy,
+
                 NotificationId = eNotification.NotificationId,
                 Sender = eNotification.Sender,
-                Message = eNotification.Message,
+                Body = eNotification.Body,
                 Receiver = eNotification.Receiver,
             };
         }
@@ -85,9 +102,15 @@ namespace AndersonNotificationFunction
         {
             return eNotifications.Select(a => new Notification
             {
+                CreatedDate = a.CreatedDate,
+                UpdatedDate = a.UpdatedDate,
+
+                CreatedBy = a.CreatedBy,
+                UpdatedBy = a.UpdatedBy,
+
                 NotificationId = a.NotificationId,
                 Sender = a.Sender,
-                Message = a.Message,
+                Body = a.Body,
                 Receiver = a.Receiver,
 
 

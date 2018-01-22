@@ -1,0 +1,18 @@
+﻿@using AndersonNotificationModel;
+@model Notification
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+<div class="row">
+    <div class="col-sm-12">
+        <form action="~/Notification/Create" method="post">
+            @{
+                Html.RenderPartial("_Notification", Model);
+            }
+        </form>
+    </div>
+</div>
