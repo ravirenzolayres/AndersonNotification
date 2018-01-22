@@ -7,16 +7,16 @@ using System;
 
 namespace AndersonNotificationFunction
 {
-    public class FNotification : IFNotification
+    public class FEmailNotification : IFEmailNotification
     {
         private IDNotification _iDNotification;
 
-        public FNotification(IDNotification iDNotifications)
+        public FEmailNotification(IDNotification iDNotifications)
         {
             _iDNotification = iDNotifications;
         }
 
-        public FNotification()
+        public FEmailNotification()
         {
             _iDNotification = new DNotification();
 

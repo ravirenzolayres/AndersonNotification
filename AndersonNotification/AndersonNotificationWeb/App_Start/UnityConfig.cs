@@ -61,7 +61,7 @@ namespace AndersonNotificationWeb
             #endregion
 
             #region Function
-            container.RegisterType<IFNotification, FNotification>(new PerRequestLifetimeManager());
+            container.RegisterType<IFEmailNotification, FEmailNotification>(new PerRequestLifetimeManager());
             #endregion
         }
     }
