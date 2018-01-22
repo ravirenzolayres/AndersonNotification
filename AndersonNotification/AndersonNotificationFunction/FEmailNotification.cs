@@ -7,22 +7,22 @@ using System;
 
 namespace AndersonNotificationFunction
 {
-    public class FNotification : IFNotification
+    public class FEmailNotification : IFEmailNotification
     {
-        private IDNotification _iDNotification;
+        private IDEmailNotification _iDNotification;
 
-        public FNotification(IDNotification iDNotifications)
+        public FEmailNotification(IDEmailNotification iDNotifications)
         {
             _iDNotification = iDNotifications;
         }
 
-        public FNotification()
+        public FEmailNotification()
         {
-            _iDNotification = new DNotification();
+            _iDNotification = new DEmailNotification();
 
         }
         #region Create
-        public Notification Create(int createdBy, Notification notification)
+        public EmailNotification Create(int createdBy, EmailNotification notification)
         {   
             var eNotification = ENotification(notification);
             eNotification.CreatedDate = DateTime.Now;
@@ -33,21 +33,21 @@ namespace AndersonNotificationFunction
         #endregion
 
         #region Read
-        public Notification Read(int notificationId)
+        public EmailNotification Read(int notificationId)
         {
-            var eNotification = _iDNotification.Read<ENotification>(a => a.NotificationId == notificationId);
+            var eNotification = _iDNotification.Read<EEmailNotification>(a => a.NotificationId == notificationId);
             return Notification(eNotification);
         }
 
-        public List<Notification> Read(string sortBy)
+        public List<EmailNotification> Read(string sortBy)
         {
-            var eNotifications = _iDNotification.Read<ENotification>(a => true, sortBy);
+            var eNotifications = _iDNotification.Read<EEmailNotification>(a => true, sortBy);
             return Notifications(eNotifications);
         }
         #endregion
 
         #region Update
-        public Notification Update(int updatedBy, Notification notification)
+        public EmailNotification Update(int updatedBy, EmailNotification notification)
         {
             var eNotification = ENotification(notification);
             eNotification.UpdatedDate = DateTime.Now;
@@ -60,14 +60,14 @@ namespace AndersonNotificationFunction
         #region Delete
         public void Delete(int notificationId)
         {
-            _iDNotification.Delete<ENotification>(a => a.NotificationId == notificationId);
+            _iDNotification.Delete<EEmailNotification>(a => a.NotificationId == notificationId);
         }
         #endregion
 
         #region Other Function
-        private ENotification ENotification(Notification notification)
+        private EEmailNotification ENotification(EmailNotification notification)
         {
-            return new ENotification
+            return new EEmailNotification
             {
                 CreatedDate = notification.CreatedDate,
                 UpdatedDate = notification.UpdatedDate,
@@ -82,9 +82,9 @@ namespace AndersonNotificationFunction
             };
         }
 
-        private Notification Notification(ENotification eNotification)
+        private EmailNotification Notification(EEmailNotification eNotification)
         {
-            return new Notification
+            return new EmailNotification
             {
                 CreatedDate = eNotification.CreatedDate,
                 UpdatedDate = eNotification.UpdatedDate,
@@ -98,9 +98,9 @@ namespace AndersonNotificationFunction
                 Receiver = eNotification.Receiver,
             };
         }
-        private List<Notification> Notifications(List<ENotification> eNotifications)
+        private List<EmailNotification> Notifications(List<EEmailNotification> eNotifications)
         {
-            return eNotifications.Select(a => new Notification
+            return eNotifications.Select(a => new EmailNotification
             {
                 CreatedDate = a.CreatedDate,
                 UpdatedDate = a.UpdatedDate,

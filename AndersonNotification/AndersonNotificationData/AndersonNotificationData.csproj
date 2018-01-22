@@ -63,8 +63,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IDNotification.cs" />
-    <Compile Include="DNotification.cs" />
+    <Compile Include="IDEmailNotification.cs" />
+    <Compile Include="DEmailNotification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

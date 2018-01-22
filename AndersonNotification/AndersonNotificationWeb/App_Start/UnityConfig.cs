@@ -57,11 +57,11 @@ namespace AndersonNotificationWeb
             #endregion
 
             #region Data
-            container.RegisterType<IDNotification, DNotification>(new PerRequestLifetimeManager());
+            container.RegisterType<IDEmailNotification, DEmailNotification>(new PerRequestLifetimeManager());
             #endregion
 
             #region Function
-            container.RegisterType<IFNotification, FNotification>(new PerRequestLifetimeManager());
+            container.RegisterType<IFEmailNotification, FEmailNotification>(new PerRequestLifetimeManager());
             #endregion
         }
     }

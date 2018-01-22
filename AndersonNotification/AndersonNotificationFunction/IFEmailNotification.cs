@@ -3,19 +3,19 @@ using System.Collections.Generic;
 
 namespace AndersonNotificationFunction
 {
-    public interface IFNotification
+    public interface IFEmailNotification
     {
         #region Create
-        Notification Create(int createdBy, Notification notification);
+        EmailNotification Create(int createdBy, EmailNotification notification);
         #endregion
 
         #region Read
-        Notification Read(int notificationId);
-        List<Notification> Read(string sortBy);
+        EmailNotification Read(int notificationId);
+        List<EmailNotification> Read(string sortBy);
         #endregion
 
         #region Update
-        Notification Update(int updatedBy, Notification notification);
+        EmailNotification Update(int updatedBy, EmailNotification notification);
         #endregion
 
         #region Delete

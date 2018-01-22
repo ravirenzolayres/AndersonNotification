@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace AndersonNotificationData
 {
-    public interface IDNotification : IDBase
+    public interface IDEmailNotification : IDBase
     {
     }
 }

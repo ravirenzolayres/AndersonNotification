@@ -15,8 +15,8 @@ namespace AndersonNotificationWeb.Controllers
 {
     public class NotificationController : BaseController
     {
-        private IFNotification _iFNotification;
-        public NotificationController(IFNotification iFNotification)
+        private IFEmailNotification _iFNotification;
+        public NotificationController(IFEmailNotification iFNotification)
         {
             _iFNotification = iFNotification;
         }
@@ -25,11 +25,11 @@ namespace AndersonNotificationWeb.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            return View(new Notification());
+            return View(new EmailNotification());
         }
 
         [HttpPost]
-        public ActionResult Create(Notification notification)
+        public ActionResult Create(EmailNotification notification)
         {
             var createdNotification = _iFNotification.Create(CredentialId,notification);
             return RedirectToAction("Index");

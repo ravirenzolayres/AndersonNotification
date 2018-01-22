@@ -6,9 +6,9 @@ using System.Linq;
 
 namespace AndersonNotificationData
 {
-    public class DNotification : DBase, IDNotification
+    public class DEmailNotification : DBase, IDEmailNotification
     {
-        public DNotification() : base(new Context())
+        public DEmailNotification() : base(new Context())
         {
         }
         #region Create
