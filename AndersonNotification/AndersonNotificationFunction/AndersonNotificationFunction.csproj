@@ -51,8 +51,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FNotification.cs" />
-    <Compile Include="IFNotification.cs" />
+    <Compile Include="FEmailNotification.cs" />
+    <Compile Include="IFEmailNotification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
