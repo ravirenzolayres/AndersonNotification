@@ -10,11 +10,16 @@ namespace AndersonNotificationContext
         }
         protected override void Seed(Context context)
         {
-            context.Notification.Add(
+            var Notifications = context.Notifications.Add(
                 new ENotification
                 {
+                    Receiver = "notification@testing.com",
+                    Sender = "notification@testing.com",
+                    Subject = "Testing",
+                    Body = "notification@testing.com",
                 });
-            base.Seed(context);
+            context.SaveChanges();
+
         }
     }
 }

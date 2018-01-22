@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AndersonNotificationEntity
 {
-    [Table("Notification")]
+    [Table("AndersonNotification")]
     public class ENotification : EBase
     {
         [Key]
@@ -15,6 +15,5 @@ namespace AndersonNotificationEntity
         public string Subject { get; set; }
         public string Body { get; set; }
         public string Receiver { get; set; }
-
     }
 }
