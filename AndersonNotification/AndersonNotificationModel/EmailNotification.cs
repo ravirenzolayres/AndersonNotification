@@ -5,7 +5,7 @@ namespace AndersonNotificationModel
 {
     public class EmailNotification : Base
     {
-        public int NotificationId { get; set; }
+        public int EmailNotificationId { get; set; }
         public string Sender { get; set; }
         public string Receiver { get; set; }
         public string Subject { get; set; }

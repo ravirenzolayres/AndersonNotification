@@ -33,9 +33,9 @@ namespace AndersonNotificationFunction
         #endregion
 
         #region Read
-        public EmailNotification Read(int notificationId)
+        public EmailNotification Read(int emailNotificationId)
         {
-            var eNotification = _iDNotification.Read<EEmailNotification>(a => a.NotificationId == notificationId);
+            var eNotification = _iDNotification.Read<EEmailNotification>(a => a.EmailNotificationId == emailNotificationId);
             return Notification(eNotification);
         }
 
@@ -58,9 +58,9 @@ namespace AndersonNotificationFunction
         #endregion
 
         #region Delete
-        public void Delete(int notificationId)
+        public void Delete(int emailNotificationId)
         {
-            _iDNotification.Delete<EEmailNotification>(a => a.NotificationId == notificationId);
+            _iDNotification.Delete<EEmailNotification>(a => a.EmailNotificationId == emailNotificationId);
         }
         #endregion
 
@@ -75,7 +75,7 @@ namespace AndersonNotificationFunction
                 CreatedBy = notification.CreatedBy,
                 UpdatedBy = notification.UpdatedBy,
 
-                NotificationId = notification.NotificationId,
+                EmailNotificationId = notification.EmailNotificationId,
                 Sender = notification.Sender,
                 Body = notification.Body,
                 Receiver = notification.Receiver,
@@ -92,7 +92,7 @@ namespace AndersonNotificationFunction
                 CreatedBy = eNotification.CreatedBy,
                 UpdatedBy = eNotification.UpdatedBy,
 
-                NotificationId = eNotification.NotificationId,
+                EmailNotificationId = eNotification.EmailNotificationId,
                 Sender = eNotification.Sender,
                 Body = eNotification.Body,
                 Receiver = eNotification.Receiver,
@@ -108,7 +108,7 @@ namespace AndersonNotificationFunction
                 CreatedBy = a.CreatedBy,
                 UpdatedBy = a.UpdatedBy,
 
-                NotificationId = a.NotificationId,
+                EmailNotificationId = a.EmailNotificationId,
                 Sender = a.Sender,
                 Body = a.Body,
                 Receiver = a.Receiver,
