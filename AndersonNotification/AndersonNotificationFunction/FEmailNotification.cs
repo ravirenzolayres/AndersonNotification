@@ -16,6 +16,7 @@ namespace AndersonNotificationFunction
             _iDNotification = iDNotifications;
         }
 
+
         public FEmailNotification()
         {
             _iDNotification = new DEmailNotification();
